@@ -1,0 +1,36 @@
+{
+  "name": "gatsby-plugin-linaria",
+  "version": "1.0.0",
+  "description": "Gatsby plugin for styling with Linaria",
+  "main": "index.js",
+  "repository": "https://github.com/silvenon/gatsby-plugin-linaria",
+  "author": "Matija Marohnić <matija.marohnic@gmail.com>",
+  "license": "MIT",
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint"
+    ]
+  },
+  "peerDependencies": {
+    "gatsby": ">=2",
+    "linaria": ">=1.0.0-alpha"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^1.1.1",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3"
+  }
+}
