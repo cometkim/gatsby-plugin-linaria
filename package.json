@@ -11,6 +11,9 @@
     "gatsby-plugin",
     "linaria"
   ],
+  "engines": {
+    "node": ">=4.9.1"
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true,
