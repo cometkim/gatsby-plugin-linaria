@@ -6,6 +6,11 @@
   "repository": "https://github.com/silvenon/gatsby-plugin-linaria",
   "author": "Matija Marohnić <matija.marohnic@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "linaria"
+  ],
   "prettier": {
     "semi": false,
     "singleQuote": true,
