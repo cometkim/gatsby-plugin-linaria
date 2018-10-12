@@ -1,9 +1,9 @@
 # Linaria plugin for Gatsby
 
-🚧 Linaria is currently in alpha and has two important issues ([222][] and [249][]) that need to be resolved in order for this integration to work smoothly. I'm really excited about this library too, but I suggest not jumping on this ship just yet. 🚧
+🚧 Linaria is currently in alpha and has two important issues ([#222][] and [#249][]) that need to be resolved in order for this integration to work smoothly. I'm really excited about this library too, but I suggest not jumping on this ship just yet. 🚧
 
-[222]: https://github.com/callstack/linaria/issues/222
-[249]: https://github.com/callstack/linaria/issues/249
+[#222]: https://github.com/callstack/linaria/issues/222
+[#249]: https://github.com/callstack/linaria/issues/249
 
 ---
 
