@@ -21,7 +21,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run eslint-check && eslint ."
     }
   },
   "lint-staged": {
@@ -29,6 +30,9 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "scripts": {
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
   },
   "peerDependencies": {
     "gatsby": ">=2",
