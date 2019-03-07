@@ -6,6 +6,10 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
     loader: 'linaria/loader',
     options: {
       sourceMap: stage.includes('develop'),
+      displayName: stage.includes('develop'),
+      babelOptions: {
+        presets: ['babel-preset-gatsby'],
+      },
     },
   }
 
