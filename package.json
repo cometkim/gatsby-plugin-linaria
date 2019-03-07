@@ -32,7 +32,8 @@
     ]
   },
   "scripts": {
-    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
+    "prepublishOnly": "yarn run eslint-check && eslint ."
   },
   "peerDependencies": {
     "gatsby": ">=2",
