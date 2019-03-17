@@ -18,7 +18,20 @@ plugins: [
 
 Finally, make sure to add `.linaria-cache` to your `.gitignore` file.
 
-That's it! gatsby-plugin-linaria configures Linaria's webpack plugin to use [babel-preset-gatsby][], which contains Gatsby's Babel configuration.
+That's it! gatsby-plugin-linaria configures Linaria's webpack plugin to use
+[babel-preset-gatsby][], which contains Gatsby's Babel configuration.
+
+## TypeScript
+
+If you're using gatsby-plugin-typescript, make sure to include it **before**
+gatsby-plugin-linaria:
+
+```js
+plugins: [
+  'gatsby-plugin-typescript',
+  'gatsby-plugin-linaria',
+]
+```
 
 Happy styling! :art:
 
