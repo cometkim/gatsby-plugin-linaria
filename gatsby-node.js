@@ -7,7 +7,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
   const tests = [rules.js().test.source, TYPESCRIPT_RULE_TEST]
 
   const sourceRules = config.module.rules.filter(({ test, exclude }) => {
-    if (!test | !exclude) return false
+    if (!test || !exclude) return false
     return (
       tests.includes(test.source) && exclude.source.includes('node_modules')
     )
