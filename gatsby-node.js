@@ -1,15 +1,18 @@
-const TYPESCRIPT_RULE_TEST = '\\.tsx?$'
+const TS_RULE_TEST = '\\.tsx?$'
 
 exports.onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
   const { replaceWebpackConfig } = actions
   const config = getConfig()
 
-  const tests = [rules.js().test.source, TYPESCRIPT_RULE_TEST]
+  const JS_RULE_TEST = rules.js().test.source
 
-  const sourceRules = config.module.rules.filter(({ test, exclude }) => {
-    if (!test || !exclude) return false
+  const sourceRules = config.module.rules.filter(({ test, include }) => {
+    if (!test) return false
     return (
-      tests.includes(test.source) && exclude.source.includes('node_modules')
+      (test.source === JS_RULE_TEST &&
+        include != null &&
+        !include.source.includes('node_modules')) ||
+      test.source === TS_RULE_TEST
     )
   })
 
@@ -26,7 +29,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
         displayName: stage.includes('develop'),
         babelOptions: {
           presets:
-            rule.test.source === TYPESCRIPT_RULE_TEST
+            rule.test.source === TS_RULE_TEST
               ? ['babel-preset-gatsby', '@babel/preset-typescript']
               : ['babel-preset-gatsby'],
         },
