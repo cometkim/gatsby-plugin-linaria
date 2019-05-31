@@ -6,12 +6,13 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
 
   const JS_RULE_TEST = rules.js().test.source
 
-  const sourceRules = config.module.rules.filter(({ test, include }) => {
+  const sourceRules = config.module.rules.filter(({ test, exclude }) => {
     if (!test) return false
     return (
       (test.source === JS_RULE_TEST &&
-        include != null &&
-        !include.source.includes('node_modules')) ||
+        exclude != null &&
+        exclude.source.includes('node_modules')) ||
+      // TypeScript rule has no `exclude` or `include`
       test.source === TS_RULE_TEST
     )
   })
