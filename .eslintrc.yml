@@ -12,5 +12,6 @@ extends:
   - eslint:recommended
   - plugin:react/recommended
   - prettier
+  - prettier/react
 rules:
   prettier/prettier: error
