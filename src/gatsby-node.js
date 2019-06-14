@@ -38,5 +38,17 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
     })
   })
 
+  if (config.optimization) {
+    // Split chunk for linaria stylesheets
+    config.optimization.splitChunks.cacheGroups.linaria = {
+      name: 'linaria',
+      test: /\.linaria\.css$/,
+      chunks: 'all',
+      enforce: true,
+      // Set priority grater than default group
+      priority: 1,
+    }
+  }
+
   replaceWebpackConfig(config)
 }
