@@ -33,7 +33,13 @@ plugins: [
 ]
 ```
 
-Happy styling! :art:
+Happy styling! :art:y'
 
 [Linaria]: https://github.com/callstack/linaria
 [babel-preset-gatsby]: https://github.com/gatsbyjs/gatsby/tree/master/packages/babel-preset-gatsby
+
+## FAQ
+
+### "warning  'css' is defined but never used  `no-unused-vars`"
+
+At the time of this writing, Gatsby comes with eslint-loader [eslint-loader](https://github.com/webpack-contrib/eslint-loader) built-in, which seems to be unable to detect the modified Babel configuration. So far the fastest way to fix this is to add both ESLint and Babel configuration file to your project. Configure ESLint to extend [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app) (this is the one that Gatsby uses) and configure Babel according to Gatsby's instructions [how to add a custom Babel configuration](https://www.gatsbyjs.org/docs/babel/), and add [linaria/babel](https://github.com/callstack/linaria/blob/master/docs/CONFIGURATION.md#linariababel-preset) as well.
