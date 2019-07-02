@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir .",
-    "eslint-check": "eslint --print-config . | eslint-config-prettier-check",
+    "eslint-check": "eslint --print-config ./index.js | eslint-config-prettier-check",
     "prepublishOnly": "yarn eslint-check && eslint . && yarn build"
   },
   "peerDependencies": {
@@ -43,15 +43,15 @@
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "babel-preset-gatsby-package": "^0.1.4",
+    "babel-preset-gatsby-package": "^0.2.0",
     "cross-env": "^5.2.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
+    "eslint": "^6.0.1",
+    "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.13.0",
-    "husky": "^2.3.0",
-    "lint-staged": "^8.1.7",
-    "prettier": "^1.17.1"
+    "eslint-plugin-react": "^7.14.2",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.0.1",
+    "prettier": "^1.18.2"
   },
   "dependencies": {}
 }
