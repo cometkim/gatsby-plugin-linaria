@@ -2,7 +2,7 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { collect } from 'linaria/server'
 
-const LINARIA_STYLESHEET_RULE = /^\/linaria\.[\w\d]+\.css$/
+const LINARIA_STYLESHEET_RULE = /\/linaria\.[\w\d]+\.css$/
 
 let bodyHTML
 
