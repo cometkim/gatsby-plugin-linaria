@@ -22,7 +22,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn run eslint-check && eslint ."
+      "pre-push": "yarn lint"
     }
   },
   "lint-staged": {
@@ -33,8 +33,9 @@
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir .",
-    "eslint-check": "eslint --print-config ./index.js | eslint-config-prettier-check",
-    "prepublishOnly": "yarn eslint-check && eslint . && yarn build"
+    "prelint": "eslint --print-config ./index.js | eslint-config-prettier-check",
+    "lint": "eslint .",
+    "prepublishOnly": "yarn lint && yarn build"
   },
   "peerDependencies": {
     "gatsby": ">=2",
