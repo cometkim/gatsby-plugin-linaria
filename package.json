@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-linaria",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Gatsby plugin for styling with Linaria",
   "main": "index.js",
   "repository": "https://github.com/silvenon/gatsby-plugin-linaria",
