@@ -13,5 +13,8 @@ extends:
   - plugin:react/recommended
   - prettier
   - prettier/react
+settings:
+  react:
+    version: 16.4.2
 rules:
   prettier/prettier: error
