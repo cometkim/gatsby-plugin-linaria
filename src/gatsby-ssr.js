@@ -6,11 +6,11 @@ const LINARIA_STYLESHEET_RULE = /\/linaria\.[\w\d]+\.css$/
 
 let bodyHTML
 
-exports.replaceRenderer = ({ bodyComponent }) => {
+export const replaceRenderer = ({ bodyComponent }) => {
   bodyHTML = renderToString(bodyComponent)
 }
 
-exports.onPreRenderHTML = ({
+export const onPreRenderHTML = ({
   pathname,
   getHeadComponents,
   replaceHeadComponents,

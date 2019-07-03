@@ -1,54 +1,53 @@
 const TS_RULE_TEST = '\\.tsx?$'
 
-exports.onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
-  const { replaceWebpackConfig } = actions
+export const onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
   const config = getConfig()
-
-  const JS_RULE_TEST = rules.js().test.source
-
-  const sourceRules = config.module.rules.filter(({ test, exclude }) => {
-    if (!test) return false
-    return (
-      (test.source === JS_RULE_TEST &&
-        exclude != null &&
-        exclude.source.includes('node_modules')) ||
-      // TypeScript rule has no `exclude` or `include`
-      test.source === TS_RULE_TEST
-    )
-  })
-
-  sourceRules.forEach(rule => {
-    // gatsby-plugin-typescript doesn't put it in an array
-    if (!Array.isArray(rule.use)) {
-      rule.use = [rule.use]
-    }
-
-    rule.use.push({
-      loader: 'linaria/loader',
-      options: {
-        sourceMap: stage.includes('develop'),
-        displayName: stage.includes('develop'),
-        babelOptions: {
-          presets:
-            rule.test.source === TS_RULE_TEST
-              ? ['babel-preset-gatsby', '@babel/preset-typescript']
-              : ['babel-preset-gatsby'],
-        },
+  const isDevelop = stage.startsWith('develop')
+  const isBuild = stage.startsWith('build')
+  const usingTS = config.module.rules.some(
+    ({ test }) => test && test.source === TS_RULE_TEST
+  )
+  const linariaLoader = {
+    loader: 'linaria/loader',
+    options: {
+      sourceMap: isDevelop,
+      displayName: isDevelop,
+      babelOptions: {
+        presets: usingTS
+          ? ['babel-preset-gatsby', '@babel/preset-typescript']
+          : ['babel-preset-gatsby'],
       },
-    })
-  })
-
-  if (config.optimization) {
-    // Split chunk for linaria stylesheets
-    config.optimization.splitChunks.cacheGroups.linaria = {
-      name: 'linaria',
-      test: /\.linaria\.css$/,
-      chunks: 'all',
-      enforce: true,
-      // Set priority grater than default group
-      priority: 1,
-    }
+    },
+  }
+  const jsRule = {
+    ...rules.js(),
+    use: [linariaLoader],
+  }
+  const tsRule = usingTS && {
+    test: new RegExp(TS_RULE_TEST),
+    use: [linariaLoader],
   }
 
-  replaceWebpackConfig(config)
+  actions.setWebpackConfig({
+    module: {
+      rules: [jsRule, tsRule].filter(Boolean),
+    },
+    // Split chunk for linaria stylesheets
+    ...(isBuild && {
+      optimization: {
+        splitChunks: {
+          cacheGroups: {
+            linaria: {
+              name: 'linaria',
+              test: /\.linaria\.css$/,
+              chunks: 'all',
+              enforce: true,
+              // Set priority grater than default group
+              priority: 1,
+            },
+          },
+        },
+      },
+    }),
+  })
 }
