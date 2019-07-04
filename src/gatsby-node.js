@@ -1,9 +1,9 @@
 const TS_RULE_TEST = '\\.tsx?$'
 
 export const onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
+  const { setWebpackConfig, replaceWebpackConfig } = actions
   const config = getConfig()
   const isDevelop = stage.startsWith('develop')
-  const isBuild = stage.startsWith('build')
   const usingTS = config.module.rules.some(
     ({ test }) => test && test.source === TS_RULE_TEST
   )
@@ -13,9 +13,10 @@ export const onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
       sourceMap: isDevelop,
       displayName: isDevelop,
       babelOptions: {
-        presets: usingTS
-          ? ['babel-preset-gatsby', '@babel/preset-typescript']
-          : ['babel-preset-gatsby'],
+        presets: [
+          'babel-preset-gatsby',
+          usingTS && '@babel/preset-typescript',
+        ].filter(Boolean),
       },
     },
   }
@@ -27,27 +28,23 @@ export const onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
     test: new RegExp(TS_RULE_TEST),
     use: [linariaLoader],
   }
-
-  actions.setWebpackConfig({
+  setWebpackConfig({
     module: {
       rules: [jsRule, tsRule].filter(Boolean),
     },
-    // Split chunk for linaria stylesheets
-    ...(isBuild && {
-      optimization: {
-        splitChunks: {
-          cacheGroups: {
-            linaria: {
-              name: 'linaria',
-              test: /\.linaria\.css$/,
-              chunks: 'all',
-              enforce: true,
-              // Set priority grater than default group
-              priority: 1,
-            },
-          },
-        },
-      },
-    }),
   })
+
+  if (config.optimization) {
+    // Split chunk for linaria stylesheets
+    const newConfig = getConfig()
+    newConfig.optimization.splitChunks.cacheGroups.linaria = {
+      name: 'linaria',
+      test: /\.linaria\.css$/,
+      chunks: 'all',
+      enforce: true,
+      // Set priority grater than default group
+      priority: 1,
+    }
+    replaceWebpackConfig(newConfig)
+  }
 }
