@@ -32,14 +32,14 @@ export const onPreRenderHTML = ({
     bodyHTML,
     styles.map(style => style.text).join('')
   )
-  // Attach critical CSS into top of head
+  // Attach critical CSS into bottom of head
   replaceHeadComponents([
+    ...headComponents,
     <style
       key="linaria-critical-css"
       data-linaria-critical={pathname}
       dangerouslySetInnerHTML={{ __html: critical }}
     />,
-    ...headComponents,
   ])
   // Attach other and critical into bottom of body
   // This also includes critical css because of cache hit
@@ -48,7 +48,12 @@ export const onPreRenderHTML = ({
     styles
       .map(style => style.href)
       .map(href => (
-        <link key={href} rel="stylesheet" type="text/css" href={href} />
+        <link
+          key={href}
+          rel="prefetch stylesheet"
+          type="text/css"
+          href={href}
+        />
       )),
   ])
 }
