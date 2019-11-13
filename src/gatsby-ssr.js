@@ -48,12 +48,7 @@ export const onPreRenderHTML = ({
     styles
       .map(style => style.href)
       .map(href => (
-        <link
-          key={href}
-          rel="prefetch stylesheet"
-          type="text/css"
-          href={href}
-        />
+        <link key={href} rel="stylesheet" type="text/css" href={href} />
       )),
   ])
 }
