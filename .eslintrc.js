@@ -4,21 +4,15 @@ module.exports = {
     es6: true,
     node: true,
   },
-  plugins: [
-    'prettier',
-  ],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
-    'prettier',
+    'plugin:prettier/recommended',
     'prettier/react',
   ],
   settings: {
     react: {
       version: '16.4.2',
     },
-  },
-  rules: {
-    'prettier/prettier': 'error',
   },
 }
