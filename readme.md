@@ -40,7 +40,7 @@ Happy styling! :art:
 
 ## Known issues
 
-### `Error: Cannot find module 'core-js/modules/<polyfill>'` (#50)
+### `Error: Cannot find module 'core-js/modules/<polyfill>'`
 
 This error is caused by:
 
@@ -53,6 +53,8 @@ A workaround is to update Linaria to at least `1.4.0-beta.3` and install the lat
 yarn add linaria@^1.4.0-beta.3
 yarn add core-js
 ```
+
+[Read #50](https://github.com/silvenon/gatsby-plugin-linaria/issues/50) for more context.
 
 ### `warning  'css' is defined but never used  no-unused-vars`
 
