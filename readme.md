@@ -38,7 +38,7 @@ Happy styling! :art:
 [Linaria]: https://github.com/callstack/linaria
 [babel-preset-gatsby]: https://github.com/gatsbyjs/gatsby/tree/master/packages/babel-preset-gatsby
 
-## FAQ
+## Known issues
 
 ### `Error: Cannot find module 'core-js/modules/<polyfill>'` (#50)
 
