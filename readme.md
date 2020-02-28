@@ -40,6 +40,20 @@ Happy styling! :art:y'
 
 ## FAQ
 
+### `Error: Cannot find module 'core-js/modules/<polyfill>'` (#50)
+
+This error is caused by:
+
+  1. a discrepancy between Linaria's and Gatsby's version of core-js
+  2. stable versions of Linaria being built with an incorrect Babel configuration
+
+A workaround is to update Linaria to at least `1.4.0-beta.3` and install the latest version of core-js (v3):
+
+```sh
+yarn add linaria@^1.4.0-beta.3
+yarn add core-js
+```
+
 ### `warning  'css' is defined but never used  no-unused-vars`
 
 At the time of this writing, Gatsby comes with [eslint-loader](https://github.com/webpack-contrib/eslint-loader) built-in, which seems to be unable to detect the modified Babel configuration. So far the fastest way to fix this is to add both ESLint and Babel configuration file to your project. Configure ESLint to extend [eslint-config-react-app](https://github.com/facebook/create-react-app/tree/master/packages/eslint-config-react-app) (this is the one that Gatsby uses) and configure Babel according to Gatsby's instructions [how to add a custom Babel configuration](https://www.gatsbyjs.org/docs/babel/), and add [linaria/babel](https://github.com/callstack/linaria/blob/master/docs/CONFIGURATION.md#linariababel-preset) as well.
