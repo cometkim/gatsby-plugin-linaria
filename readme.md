@@ -33,7 +33,7 @@ plugins: [
 ]
 ```
 
-Happy styling! :art:y'
+Happy styling! :art:
 
 [Linaria]: https://github.com/callstack/linaria
 [babel-preset-gatsby]: https://github.com/gatsbyjs/gatsby/tree/master/packages/babel-preset-gatsby
