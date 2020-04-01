@@ -30,7 +30,7 @@ export const onPreRenderHTML = ({
   })
   const { critical } = collect(
     bodyHTML,
-    styles.map(style => style.text).join('')
+    styles.map((style) => style.text).join('')
   )
   // Attach critical CSS into bottom of head
   replaceHeadComponents([
@@ -46,8 +46,8 @@ export const onPreRenderHTML = ({
   replacePostBodyComponents([
     ...getPostBodyComponents(),
     styles
-      .map(style => style.href)
-      .map(href => (
+      .map((style) => style.href)
+      .map((href) => (
         <link key={href} rel="stylesheet" type="text/css" href={href} />
       )),
   ])
