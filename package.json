@@ -3,13 +3,33 @@
   "version": "2.0.0",
   "description": "Gatsby plugin for styling with Linaria",
   "main": "index.js",
-  "repository": "https://github.com/silvenon/gatsby-plugin-linaria",
-  "author": "Matija Marohnić <matija.marohnic@gmail.com>",
+  "homepage": "https://github.com/silvenon/gatsby-plugin-linaria#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/silvenon/gatsby-plugin-linaria.git"
+  },
+  "author": {
+    "name": "Matija Marohnić",
+    "email": "matija.marohnic@gmail.com",
+    "url": "https://silvenon.com"
+  },
+  "contributors": [
+    {
+      "name": "Hyeseong Kim",
+      "url": "https://cometkim.kr"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/silvenon/gatsby-plugin-linaria/issues",
+    "email": "matija.marohnic@gmail.com"
+  },
   "license": "MIT",
   "keywords": [
     "gatsby",
     "gatsby-plugin",
-    "linaria"
+    "linaria",
+    "css",
+    "css-in-js"
   ],
   "engines": {
     "node": ">=4.9.1"
