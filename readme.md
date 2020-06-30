@@ -42,6 +42,24 @@ Happy styling! :art:
 
 ## Known issues
 
+### `SyntaxError: Cannot use import statement outside a module`
+
+This error will be thrown from `@reach/router` if you try to style Gatsby's `Link` with Linaria. The workaround is to wrap the `Link` component and style the wrapper instead:
+
+```jsx
+import React from 'react'
+import { Link as GatsbyLink } from 'gatsby'
+import { styled } from 'linaria/react'
+
+const Link = (props) => <GatsbyLink {...props} />
+
+const StyledLink = styled(Link)`
+  /* your styles */
+`
+```
+
+This happens because Gatsby aliases `@react/router` to ESM, which Linaria's evaluator can't understand. Read [this explanation](https://github.com/cometkim/gatsby-plugin-linaria/issues/19#issuecomment-522259673) for more info.
+
 ### `Error: Cannot find module 'core-js/modules/<polyfill>'`
 
 This error is caused by:
