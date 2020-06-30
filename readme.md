@@ -5,10 +5,12 @@ This plugin modifies Gatsby's webpack configuration to support [Linaria][].
 Install the plugin and Linaria:
 
 ```sh
-yarn add gatsby-plugin-linaria linaria
+yarn add gatsby-plugin-linaria linaria@^1.4.0-beta.3
 ```
 
-Add it to your plugins in `gatsby-config.js`:
+The version of linaria has to be _at least_ 1.4.0-beta.3 because of [this known issue](#error-cannot-find-module-core-jsmodulespolyfill).
+
+Next, add the plugin to `gatsby-config.js`:
 
 ```js
 plugins: [
