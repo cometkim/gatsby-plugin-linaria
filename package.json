@@ -3,10 +3,10 @@
   "version": "2.0.0",
   "description": "Gatsby plugin for styling with Linaria",
   "main": "index.js",
-  "homepage": "https://github.com/silvenon/gatsby-plugin-linaria#readme",
+  "homepage": "https://github.com/cometkim/gatsby-plugin-linaria",
   "repository": {
     "type": "git",
-    "url": "https://github.com/silvenon/gatsby-plugin-linaria.git"
+    "url": "https://github.com/cometkim/gatsby-plugin-linaria.git"
   },
   "author": {
     "name": "Matija Marohnić",
@@ -16,12 +16,13 @@
   "contributors": [
     {
       "name": "Hyeseong Kim",
+      "email": "cometkim.kr@gmail.com",
       "url": "https://cometkim.kr"
     }
   ],
   "bugs": {
-    "url": "https://github.com/silvenon/gatsby-plugin-linaria/issues",
-    "email": "matija.marohnic@gmail.com"
+    "url": "https://github.com/cometkim/gatsby-plugin-linaria/issues",
+    "email": "cometkim.kr@gmail.com"
   },
   "license": "MIT",
   "keywords": [
@@ -31,9 +32,6 @@
     "css",
     "css-in-js"
   ],
-  "engines": {
-    "node": ">=4.9.1"
-  },
   "prettier": {
     "semi": false,
     "singleQuote": true,
@@ -73,6 +71,5 @@
     "husky": "^4.2.1",
     "lint-staged": "^10.0.2",
     "prettier": "^2.0.2"
-  },
-  "dependencies": {}
+  }
 }
