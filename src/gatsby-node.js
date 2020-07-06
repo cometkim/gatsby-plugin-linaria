@@ -34,6 +34,12 @@ export const onCreateWebpackConfig = ({ actions, getConfig, rules, stage }) => {
     },
   })
 
+  // Linaria evaluator cannot handle esmodule syntax
+  // @See https://github.com/cometkim/gatsby-plugin-linaria/issues/19
+  const newConfig = getConfig()
+  delete newConfig.resolve.alias['@reach/router']
+  replaceWebpackConfig(newConfig)
+
   if (config.optimization) {
     // Split chunk for linaria stylesheets
     const newConfig = getConfig()
