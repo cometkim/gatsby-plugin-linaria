@@ -1,7 +1,7 @@
+.vscode/
+node_modules/
 .DS_Store
-node_modules
 *.log
-.vscode
 
 /*.js
 !/*.config.js

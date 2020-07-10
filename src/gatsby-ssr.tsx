@@ -25,7 +25,7 @@ export const onPreRenderHTML = ({
   type LinariaStyleSheet = {
     href: string,
     text: string,
-  }
+  };
   const linariaStyleSheets: LinariaStyleSheet[] = [];
   const otherElements: ReactNode[] = [];
 

@@ -1,7 +1,14 @@
 module.exports = {
+  plugins: [
+    '@cometjs',
+  ],
+  extends: [
+    'plugin:@cometjs/auto',
+  ],
   env: {
     node: true,
   },
-  plugins: ['@cometjs'],
-  extends: ['plugin:@cometjs/auto'],
+  parserOptions: {
+    project: './tsconfig.json',
+  },
 };

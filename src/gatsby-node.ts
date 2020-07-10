@@ -15,7 +15,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   const config = getConfig() as DeepRequired<Webpack.Configuration>;
   const isDevelop = stage.startsWith('develop');
   const usingTS = config.module.rules.some(
-    ({ test }) => (test instanceof RegExp) && test.source === TS_RULE_TEST
+    ({ test }) => (test instanceof RegExp) && test.source === TS_RULE_TEST,
   );
   const linariaLoader: Webpack.NewLoader = {
     loader: 'linaria/loader',
@@ -54,6 +54,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     // Split chunk for linaria stylesheets
     const newConfig = getConfig() as DeepRequired<Webpack.Configuration>;
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore Don't try to assert this or you would do blame TypeScript
     newConfig.optimization.splitChunks.cacheGroups.linaria = {
       name: 'linaria',
