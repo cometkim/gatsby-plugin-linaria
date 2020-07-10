@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "react",
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
+  }
+}
