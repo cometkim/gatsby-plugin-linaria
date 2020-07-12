@@ -52,7 +52,7 @@
   ],
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir . --extensions .ts,.tsx",
-    "lint": "eslint . --ignore-path .gitignore --ext ts --ext tsx",
+    "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
     "prepublishOnly": "yarn lint && yarn build"
   },
   "peerDependencies": {
