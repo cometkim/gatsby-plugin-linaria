@@ -1,7 +1,4 @@
 module.exports = {
-  plugins: [
-    '@cometjs',
-  ],
   extends: [
     'plugin:@cometjs/auto',
   ],
