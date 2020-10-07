@@ -1,18 +1,11 @@
 module.exports = {
-  parser: 'babel-eslint',
+  extends: [
+    'plugin:@cometjs/auto',
+  ],
   env: {
-    es6: true,
     node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:prettier/recommended',
-    'prettier/react',
-  ],
-  settings: {
-    react: {
-      version: '16.4.2',
-    },
+  parserOptions: {
+    project: './tsconfig.json',
   },
-}
+};

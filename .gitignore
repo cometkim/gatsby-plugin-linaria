@@ -1,7 +1,8 @@
+.vscode/
+node_modules/
 .DS_Store
-node_modules
 *.log
-.vscode
 
-/gatsby-node.js
-/gatsby-ssr.js
+/*.js
+!/*.config.js
+!/.*rc.js
