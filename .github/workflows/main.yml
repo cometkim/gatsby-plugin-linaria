@@ -21,6 +21,6 @@ jobs:
     - name: Run commands
       run: |
         yarn
-        yarn prepublishOnly
+        yarn prepack
       env:
         CI: true

@@ -33,14 +33,9 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "yarn lint",
       "pre-push": "yarn lint"
     }
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix"
-    ]
   },
   "files": [
     "index.js",
@@ -51,7 +46,7 @@
     "README"
   ],
   "scripts": {
-    "build": "cross-env NODE_ENV=production babel src --out-dir . --extensions .ts,.tsx",
+    "build": "babel src --out-dir . --extensions .ts,.tsx",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
     "prepack": "yarn lint && yarn build"
   },
@@ -60,28 +55,21 @@
     "linaria": ">=2.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-typescript": "^7.10.4",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-typescript": "^7.12.1",
     "@cometjs/eslint-plugin": "^0.2.1",
-    "@types/react": "^16.9.42",
-    "@types/react-dom": "^17.9.8",
-    "@types/webpack": "^4.41.21",
-    "babel-eslint": "^10.0.3",
-    "babel-preset-gatsby-package": "^0.5.2",
-    "cross-env": "^7.0.0",
-    "eslint": "^7.4.0",
-    "eslint-config-prettier": "^6.0.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "eslint-plugin-react": "^7.14.2",
-    "eslint-plugin-react-hooks": "^4.0.7",
-    "gatsby": "^2.24.2",
-    "husky": "^4.2.1",
-    "linaria": "^1.3.3",
-    "lint-staged": "^10.0.2",
-    "react": "^16.13.1",
-    "typescript": "^3.9.6",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-gatsby-package": "^0.5.3",
+    "eslint": "^7.12.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gatsby": "^2.24.87",
+    "husky": "^4.3.0",
+    "linaria": "^2.0.0",
+    "react": "^17.0.1",
+    "typescript": "^4.0.3",
     "utility-types": "^3.10.0"
   }
 }
