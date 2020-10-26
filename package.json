@@ -6,18 +6,17 @@
   "homepage": "https://github.com/cometkim/gatsby-plugin-linaria",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cometkim/gatsby-plugin-linaria.git"
+    "url": "git+https://github.com/cometkim/gatsby-plugin-linaria.git"
   },
   "author": {
     "name": "Matija Marohnić",
     "email": "matija.marohnic@gmail.com",
     "url": "https://silvenon.com"
   },
-  "contributors": [
+  "maintainers": [
     {
       "name": "Hyeseong Kim",
-      "email": "cometkim.kr@gmail.com",
-      "url": "https://cometkim.kr"
+      "email": "cometkim.kr@gmail.com"
     }
   ],
   "bugs": {
@@ -54,11 +53,11 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir . --extensions .ts,.tsx",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
-    "prepublishOnly": "yarn lint && yarn build"
+    "prepack": "yarn lint && yarn build"
   },
   "peerDependencies": {
-    "gatsby": ">=2",
-    "linaria": ">=1.2.0"
+    "gatsby": ">=2.0.0",
+    "linaria": ">=2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -66,7 +65,7 @@
     "@babel/preset-typescript": "^7.10.4",
     "@cometjs/eslint-plugin": "^0.2.1",
     "@types/react": "^16.9.42",
-    "@types/react-dom": "^16.9.8",
+    "@types/react-dom": "^17.9.8",
     "@types/webpack": "^4.41.21",
     "babel-eslint": "^10.0.3",
     "babel-preset-gatsby-package": "^0.5.2",
