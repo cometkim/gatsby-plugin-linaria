@@ -16,12 +16,12 @@
   "maintainers": [
     {
       "name": "Hyeseong Kim",
-      "email": "cometkim.kr@gmail.com"
+      "email": "hey@hyeseong.kim"
     }
   ],
   "bugs": {
     "url": "https://github.com/cometkim/gatsby-plugin-linaria/issues",
-    "email": "cometkim.kr@gmail.com"
+    "email": "hey@hyeseong.kim"
   },
   "license": "MIT",
   "keywords": [
