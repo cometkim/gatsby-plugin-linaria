@@ -49,14 +49,6 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     },
   });
 
-  // Linaria evaluator cannot handle esmodule syntax
-  // @See https://github.com/cometkim/gatsby-plugin-linaria/issues/19
-  const newConfig = getConfig() as Webpack.Configuration;
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  delete newConfig.resolve?.alias?.['@reach/router'];
-  replaceWebpackConfig(newConfig);
-
   if (config.optimization) {
     // Split chunk for linaria stylesheets
     const newConfig = getConfig() as Webpack.Configuration;
