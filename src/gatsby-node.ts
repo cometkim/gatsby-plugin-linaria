@@ -57,15 +57,16 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     // Split chunk for linaria stylesheets
     const newConfig = getConfig() as Webpack.Configuration;
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore Don't try to assert this or you would do blame TypeScript
-    newConfig.optimization.splitChunks.cacheGroups.linaria = {
+    const cacheGroups = newConfig.optimization.splitChunks?.cacheGroups || {};
+    cacheGroups.linaria = {
       name: 'linaria',
       test: /\.linaria\.css$/,
       chunks: 'all',
       enforce: true,
       // Set priority grater than default group
-      priority: 1,
+      priority: cacheGroups.styles?.priority
+        ? cacheGroups.styles.priority + 1
+        : 65536,
     };
 
     replaceWebpackConfig(newConfig);
