@@ -1,5 +1,5 @@
 import type { ReactNode, ReactElement } from 'react';
-import type { ReplaceRendererArgs, PreRenderHTMLArgs } from 'gatsby';
+import type { GatsbySSR } from 'gatsby';
 
 import React from 'react';
 import { renderToString } from 'react-dom/server';
@@ -9,17 +9,17 @@ import { isLinariaStyleElement } from './utils';
 
 let bodyHTML: string;
 
-export const replaceRenderer = ({ bodyComponent }: ReplaceRendererArgs) => {
+export const replaceRenderer: GatsbySSR['replaceRenderer'] = ({ bodyComponent }) => {
   bodyHTML = renderToString(bodyComponent as ReactElement);
 };
 
-export const onPreRenderHTML = ({
+export const onPreRenderHTML: GatsbySSR['onPreRenderHTML'] = ({
   pathname,
   getHeadComponents,
   replaceHeadComponents,
   getPostBodyComponents,
   replacePostBodyComponents,
-}: PreRenderHTMLArgs) => {
+}) => {
   const headComponents = getHeadComponents();
 
   type LinariaStyleSheet = {
@@ -32,7 +32,9 @@ export const onPreRenderHTML = ({
   for (const element of headComponents) {
     if (isLinariaStyleElement(element)) {
       linariaStyleSheets.push({
+        // eslint-disable-next-line
         href: element.props['data-href'],
+        // eslint-disable-next-line
         text: element.props.dangerouslySetInnerHTML.__html,
       });
     } else {

@@ -31,45 +31,42 @@
     "css",
     "css-in-js"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn lint",
-      "pre-push": "yarn lint"
-    }
-  },
   "files": [
     "index.js",
     "gatsby-node.js",
     "gatsby-ssr.js",
-    "utils.js",
-    "LICENSE",
-    "README"
+    "utils.js"
   ],
   "scripts": {
+    "prepare": "husky install",
     "build": "babel src --out-dir . --extensions .ts,.tsx",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
     "prepack": "yarn lint && yarn build"
   },
   "peerDependencies": {
-    "gatsby": "^2.0.0",
-    "linaria": "^2.0.0"
+    "gatsby": "^2.0.0 || ^3.0.0",
+    "linaria": "^2.0.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.12.3",
-    "@babel/preset-typescript": "^7.12.1",
-    "@cometjs/eslint-plugin": "^0.2.1",
-    "@types/react": "^16.9.53",
-    "@types/react-dom": "^16.9.8",
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/helper-define-map": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@cometjs/eslint-plugin": "^1.1.0",
+    "@types/react": "^17.0.19",
+    "@types/react-dom": "^17.0.9",
     "babel-eslint": "^10.1.0",
-    "babel-preset-gatsby-package": "^0.5.3",
-    "eslint": "^7.12.0",
+    "babel-preset-gatsby-package": "^1.13.0",
+    "eslint": "^7.32.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "gatsby": "^2.24.87",
-    "husky": "^4.3.0",
-    "linaria": "^2.0.0",
-    "react": "^17.0.1",
-    "typescript": "^4.0.3",
-    "utility-types": "^3.10.0"
+    "gatsby": "^3.13.0",
+    "husky": "^7.0.2",
+    "linaria": "^2.1.0",
+    "react": "^17.0.2",
+    "typescript": "^4.4.2",
+    "utility-types": "^3.10.0",
+    "webpack": "^5.51.2"
   }
 }
