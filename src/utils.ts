@@ -2,6 +2,10 @@ import type { ReactNode, ReactElement } from 'react';
 
 import { isValidElement } from 'react';
 
+export type PluginOptions = {
+  extractCritical: boolean,
+};
+
 export const TS_RULE_TEST = '\\.tsx?$';
 
 export const LINARIA_STYLESHEET_RULE = /\/linaria\.[\w\d]+\.css$/;

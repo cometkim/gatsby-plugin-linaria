@@ -1,6 +1,7 @@
 import type * as Webpack from 'webpack';
 import type { GatsbyNode } from 'gatsby';
 
+import type { PluginOptions } from './utils';
 import { TS_RULE_TEST } from './utils';
 
 type Falsy = false | null | undefined | 0 | '';
@@ -9,12 +10,23 @@ function isTruthy<T>(condition: Conditional<T>): condition is Exclude<T, Falsy> 
   return Boolean(condition);
 }
 
+export const pluginOptionsSchema: GatsbyNode['pluginOptionsSchema'] = ({
+  Joi,
+}) => {
+  return Joi.object({
+    extractCritical: Joi.boolean().default(false),
+  });
+};
+
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   actions: { setWebpackConfig, replaceWebpackConfig },
   getConfig,
   rules,
   stage,
-}) => {
+}, pluginOptions) => {
+  // Must be validated by pluginOptionsSchema
+  const options = pluginOptions as unknown as PluginOptions;
+
   const config = getConfig() as Webpack.Configuration;
   const isDevelop = stage.startsWith('develop');
   const usingTS = config.module?.rules?.some(rule => (
@@ -49,7 +61,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     },
   });
 
-  if (config.optimization) {
+  if (options.extractCritical && config.optimization) {
     // Split chunk for linaria stylesheets
     const newConfig = getConfig() as Webpack.Configuration;
 

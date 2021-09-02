@@ -5,6 +5,7 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { collect } from 'linaria/server';
 
+import type { PluginOptions } from './utils';
 import { isLinariaStyleElement } from './utils';
 
 let bodyHTML: string;
@@ -19,7 +20,13 @@ export const onPreRenderHTML: GatsbySSR['onPreRenderHTML'] = ({
   replaceHeadComponents,
   getPostBodyComponents,
   replacePostBodyComponents,
-}) => {
+}, pluginOptions) => {
+  // Must be validated by pluginOptionsSchema
+  const options = pluginOptions as unknown as PluginOptions;
+  if (!options.extractCritical) {
+    return;
+  }
+
   const headComponents = getHeadComponents();
 
   type LinariaStyleSheet = {

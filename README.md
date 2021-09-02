@@ -36,4 +36,33 @@ plugins: [
 
 See [#13](https://github.com/cometkim/gatsby-plugin-linaria/issues/13#issuecomment-633154216) for more details.
 
+## Critical CSS Extraction
+
+GatsbyJS & Linaria extract your stylesheet and inject into the `<head>` by default. So, you don't need to worry about the SSR & FOUC.
+
+However, the extracted stylesheet would be huge for large site, because it includes css used by whole pages/components
+
+This plugin provide an option `extractCritical` that use `linaria/server` API behind the scene
+
+```js
+{
+  resolve: 'gatsby-plugin-linaria',
+  options: {
+    extractCritical: true, // false by default.
+  },
+}
+```
+
+When you opt-in this feature, only **Critical CSS** is injected into the `<head>`.
+
+And loading full CSS will be deferred for later paint or navigations.
+
+See [this](https://github.com/cometkim/gatsby-plugin-linaria/issues/94#issuecomment-654760281) for more detailed explanation.
+
+## LICENSE
+
+MIT
+
+----
+
 Happy styling! :art:
