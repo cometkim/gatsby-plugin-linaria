@@ -51,8 +51,8 @@
     "prepack": "yarn lint && yarn build"
   },
   "peerDependencies": {
-    "gatsby": ">=2.0.0",
-    "linaria": ">=2.0.0"
+    "gatsby": "^2.0.0",
+    "linaria": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
