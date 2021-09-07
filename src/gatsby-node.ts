@@ -1,7 +1,12 @@
 import type * as Webpack from 'webpack';
 import type { GatsbyNode } from 'gatsby';
 
-import type { PluginOptions } from './utils';
+import {
+ LINARIA_OPTIONS_CACHE_DIRECTORY_DEFAULT,
+ LINARIA_OPTIONS_EXTENSION_DEFAULT,
+ LINARIA_OPTIONS_PREPROCESSOR_DEFAULT,
+ PluginOptions,
+} from './utils';
 import { TS_RULE_TEST } from './utils';
 
 type Falsy = false | null | undefined | 0 | '';
@@ -39,6 +44,9 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     options: {
       sourceMap: isDevelop,
       displayName: isDevelop,
+      cacheDirectory: options.cacheDirectory || LINARIA_OPTIONS_CACHE_DIRECTORY_DEFAULT,
+      extension: options.extension || LINARIA_OPTIONS_EXTENSION_DEFAULT,
+      preprocessor: options.preprocessor || LINARIA_OPTIONS_PREPROCESSOR_DEFAULT,
       babelOptions: {
         presets: [
           'babel-preset-gatsby',
