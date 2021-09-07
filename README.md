@@ -36,6 +36,21 @@ plugins: [
 
 See [#13](https://github.com/cometkim/gatsby-plugin-linaria/issues/13#issuecomment-633154216) for more details.
 
+## Customize Loader Options
+
+You can customize [linaria loader options](https://github.com/callstack/linaria/blob/v2.1.0/docs/BUNDLERS_INTEGRATION.md#options)
+
+```js
+{
+  resolve: 'gatsby-plugin-linaria',
+  options: {
+    loaderOptions: {
+      // ... Specify options here
+    },
+  },
+}
+```
+
 ## Critical CSS Extraction
 
 GatsbyJS & Linaria extract your stylesheet and inject into the `<head>` by default. So, you don't need to worry about the SSR & FOUC.
