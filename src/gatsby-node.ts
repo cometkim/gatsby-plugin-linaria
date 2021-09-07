@@ -1,12 +1,7 @@
 import type * as Webpack from 'webpack';
 import type { GatsbyNode } from 'gatsby';
 
-import {
- LINARIA_OPTIONS_CACHE_DIRECTORY_DEFAULT,
- LINARIA_OPTIONS_EXTENSION_DEFAULT,
- LINARIA_OPTIONS_PREPROCESSOR_DEFAULT,
- PluginOptions,
-} from './utils';
+import type { PluginOptions } from './utils';
 import { TS_RULE_TEST } from './utils';
 
 type Falsy = false | null | undefined | 0 | '';
@@ -19,6 +14,7 @@ export const pluginOptionsSchema: GatsbyNode['pluginOptionsSchema'] = ({
   Joi,
 }) => {
   return Joi.object({
+    loaderOptions: Joi.object().unknown(true).default({}),
     extractCritical: Joi.boolean().default(false),
   });
 };
@@ -28,9 +24,15 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   getConfig,
   rules,
   stage,
+  reporter,
 }, pluginOptions) => {
   // Must be validated by pluginOptionsSchema
   const options = pluginOptions as unknown as PluginOptions;
+
+  let extension = '.linaria.css';
+  if (typeof options.loaderOptions.extension === 'string') {
+    extension = options.loaderOptions.extension;
+  }
 
   const config = getConfig() as Webpack.Configuration;
   const isDevelop = stage.startsWith('develop');
@@ -44,15 +46,15 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     options: {
       sourceMap: isDevelop,
       displayName: isDevelop,
-      cacheDirectory: options.cacheDirectory || LINARIA_OPTIONS_CACHE_DIRECTORY_DEFAULT,
-      extension: options.extension || LINARIA_OPTIONS_EXTENSION_DEFAULT,
-      preprocessor: options.preprocessor || LINARIA_OPTIONS_PREPROCESSOR_DEFAULT,
       babelOptions: {
         presets: [
           'babel-preset-gatsby',
           usingTS && '@babel/preset-typescript',
         ].filter(isTruthy),
       },
+
+      // Allow overriding options
+      ...options.loaderOptions,
     },
   };
   const jsRule: Webpack.RuleSetRule = {
@@ -70,6 +72,10 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   });
 
   if (options.extractCritical && config.optimization) {
+    if (extension === '.css') {
+      reporter.panicOnBuild('A unique extension is required for the isolation of linaria stylesheets. consider prefixing it such as `.linaria.css`');
+    }
+
     // Split chunk for linaria stylesheets
     const newConfig = getConfig() as Webpack.Configuration;
 
@@ -84,7 +90,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
     const styleGroupPriority = cacheGroups.styles.priority || 65536;
     cacheGroups.linaria = {
       name: 'linaria',
-      test: /\.linaria\.css$/,
+      test: filename => filename.endsWith(extension),
       chunks: 'all',
       enforce: true,
       // Set priority grater than default group

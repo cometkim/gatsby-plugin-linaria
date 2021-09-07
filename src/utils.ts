@@ -3,21 +3,24 @@ import type { ReactNode, ReactElement } from 'react';
 import { isValidElement } from 'react';
 
 export type PluginOptions = {
+  /**
+   * @default false
+   */
   extractCritical: boolean,
-  cacheDirectory: string,
-  extension: string,
-  preprocessor: 'none' | 'stylis' | ((selector: string, cssText: string) => string),
+
+  /**
+   * Linaria loader options
+   *
+   * @see https://github.com/callstack/linaria/blob/master/docs/BUNDLERS_INTEGRATION.md#options
+   * @default empty (use linaria's default)
+   */
+  loaderOptions: Record<string, unknown>,
 };
 
 export const TS_RULE_TEST = '\\.tsx?$';
 
+// Splitted by optimization.splitChunks.cacheGroup.linaria options
 export const LINARIA_STYLESHEET_RULE = /\/linaria\.[\w\d]+\.css$/;
-
-export const LINARIA_OPTIONS_CACHE_DIRECTORY_DEFAULT = '.linaria-cache';
-
-export const LINARIA_OPTIONS_EXTENSION_DEFAULT = '.linaria.css';
-
-export const LINARIA_OPTIONS_PREPROCESSOR_DEFAULT = 'stylis';
 
 export function isLinariaStyleElement(node: ReactNode): node is ReactElement {
   return isValidElement(node) &&
