@@ -1,26 +1,28 @@
 name: CI
 
-on: [push]
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 
 jobs:
   test:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x]
-
     steps:
-    - name: Check out repository
+    - name: Check out the repository
       uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+
+    - name: Setup Node.js v14
+      uses: actions/setup-node@v2
       with:
-        version: ${{ matrix.node-version }}
-    - name: Run commands
-      run: |
-        yarn
-        yarn prepack
-      env:
-        CI: true
+        version: 14.x
+
+    - name: Install dependencies
+      run: yarn install --immutable
+
+    - name: Check lint
+      run: yarn lint
+
+    - name: Check build
+      run: yarn prepack
