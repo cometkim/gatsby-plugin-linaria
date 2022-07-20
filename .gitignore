@@ -6,3 +6,11 @@ node_modules/
 /*.js
 !/*.config.js
 !/.*rc.js
+
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
