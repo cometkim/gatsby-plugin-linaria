@@ -28,7 +28,10 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
       sourceMap: isDevelop,
       displayName: isDevelop,
       babelOptions: {
-        presets: ['babel-preset-gatsby'],
+        presets: [
+          'babel-preset-gatsby',
+          '@babel/preset-typescript',
+        ],
       },
       // Allow overriding options
       ...options.loaderOptions,
