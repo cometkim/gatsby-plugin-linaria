@@ -66,9 +66,9 @@ This plugin provide an option `extractCritical` that use `@linaria/server` API b
 }
 ```
 
-When you opt-in this feature, only **Critical CSS** is injected into the `<head>`.
+When you opt-in this feature, only **Critical CSS** is injected into the `<head>`. And loading full CSS will be deferred for later paint or navigations.
 
-And loading full CSS will be deferred for later paint or navigations.
+Lighthouse might complain you have duplicated style rules. (It's OK)
 
 See [this](https://github.com/cometkim/gatsby-plugin-linaria/issues/94#issuecomment-654760281) for more detailed explanation.
 
