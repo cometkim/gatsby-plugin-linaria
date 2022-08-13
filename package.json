@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-linaria",
-  "version": "3.2.0",
+  "version": "4.0.0-alpha.0",
   "description": "Gatsby plugin for styling with Linaria",
   "main": "index.js",
   "homepage": "https://www.gatsbyjs.com/plugins/gatsby-plugin-linaria/",
@@ -41,18 +41,20 @@
     "prepare": "husky install",
     "build": "babel src --out-dir . --extensions .ts,.tsx",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
-    "prepack": "yarn lint && yarn build"
+    "prepack": "yarn build"
   },
   "peerDependencies": {
+    "@babel/core": "^7.0.0",
     "@linaria/core": "^4.0.0",
     "@linaria/react": "^4.0.0",
-    "gatsby": "^2.0.0 || ^3.0.0 || ^4.0.0",
+    "gatsby": "^3.0.0 || ^4.0.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "@linaria/server": "^4.0.0",
-    "@linaria/webpack-loader": "^4.1.2"
+    "@linaria/webpack-loader": "^4.1.2",
+    "babel-preset-gatsby": "^2.20.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
