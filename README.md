@@ -10,7 +10,7 @@ Gatsby plugin for styling with [Linaria](https://linaria.dev/)
 Install the plugin and Linaria:
 
 ```bash
-yarn add gatsby-plugin-linaria linaria
+yarn add gatsby-plugin-linaria @linaria/core @linaria/react
 ```
 
 Next, add the plugin to `gatsby-config.js`:
@@ -20,8 +20,6 @@ plugins: [
   'gatsby-plugin-linaria',
 ]
 ```
-
-Finally, make sure to add `.linaria-cache` to your `.gitignore` file.
 
 ## TypeScript
 
@@ -57,7 +55,7 @@ GatsbyJS & Linaria extract your stylesheet and inject into the `<head>` by defau
 
 However, the extracted stylesheet would be huge for large site, because it includes css used by whole pages/components
 
-This plugin provide an option `extractCritical` that use `linaria/server` API behind the scene
+This plugin provide an option `extractCritical` that use `@linaria/server` API behind the scene
 
 ```js
 {
