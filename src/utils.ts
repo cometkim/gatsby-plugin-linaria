@@ -25,6 +25,6 @@ export const LINARIA_STYLESHEET_RULE = /\/linaria\.[\w\d]+\.css$/;
 export function isLinariaStyleElement(node: ReactNode): node is ReactElement {
   return isValidElement(node) &&
     node.type === 'style' &&
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument
     LINARIA_STYLESHEET_RULE.test(node.props['data-href']);
 }
