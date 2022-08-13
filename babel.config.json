@@ -1,6 +1,5 @@
 {
   "presets": [
-    "babel-preset-gatsby-package",
-    "@babel/preset-typescript"
+    "babel-preset-gatsby-package"
   ]
 }

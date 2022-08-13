@@ -2,13 +2,6 @@ import type * as Webpack from 'webpack';
 import type { GatsbyNode } from 'gatsby';
 
 import type { PluginOptions } from './utils';
-import { TS_RULE_TEST } from './utils';
-
-type Falsy = false | null | undefined | 0 | '';
-type Conditional<T> = T | Falsy;
-function isTruthy<T>(condition: Conditional<T>): condition is Exclude<T, Falsy> {
-  return Boolean(condition);
-}
 
 export const pluginOptionsSchema: GatsbyNode['pluginOptionsSchema'] = ({
   Joi,
@@ -26,60 +19,45 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
   stage,
   reporter,
 }, pluginOptions) => {
-  // Must be validated by pluginOptionsSchema
   const options = pluginOptions as unknown as PluginOptions;
+  const isDevelop = stage.includes('develop');
 
-  let extension = '.linaria.css';
-  if (typeof options.loaderOptions.extension === 'string') {
-    extension = options.loaderOptions.extension;
-  }
-
-  const config = getConfig() as Webpack.Configuration;
-  const isDevelop = stage.startsWith('develop');
-  const usingTS = config.module?.rules?.some(rule => (
-    typeof rule === 'object' &&
-    rule.test instanceof RegExp &&
-    rule.test.source === TS_RULE_TEST
-  ));
   const linariaLoader: Webpack.RuleSetUseItem = {
-    loader: 'linaria/loader',
+    loader: '@linaria/webpack-loader',
     options: {
       sourceMap: isDevelop,
       displayName: isDevelop,
       babelOptions: {
-        presets: [
-          'babel-preset-gatsby',
-          usingTS && '@babel/preset-typescript',
-        ].filter(isTruthy),
+        presets: ['babel-preset-gatsby'],
       },
-
       // Allow overriding options
       ...options.loaderOptions,
     },
   };
-  const jsRule: Webpack.RuleSetRule = {
-    ...rules.js() as Webpack.RuleSetRule,
-    use: [linariaLoader],
-  };
-  const tsRule: Conditional<Webpack.RuleSetRule> = usingTS && {
-    test: new RegExp(TS_RULE_TEST),
-    use: [linariaLoader],
-  };
+
   setWebpackConfig({
     module: {
-      rules: [jsRule, tsRule].filter(isTruthy),
+      rules: [
+        {
+          ...rules.js(),
+          use: [linariaLoader],
+        },
+      ],
     },
   });
 
+  const config = getConfig() as Webpack.Configuration;
   if (options.extractCritical && config.optimization) {
+    let extension = '.linaria.css';
+    if (typeof options.loaderOptions.extension === 'string') {
+      extension = options.loaderOptions.extension;
+    }
     if (extension === '.css') {
       reporter.panicOnBuild('A unique extension is required for the isolation of linaria stylesheets. consider prefixing it such as `.linaria.css`');
     }
 
-    // Split chunk for linaria stylesheets
-    const newConfig = getConfig() as Webpack.Configuration;
+    const { cacheGroups = {} } = config.optimization.splitChunks || {};
 
-    const { cacheGroups = {} } = newConfig.optimization?.splitChunks || {};
     if (typeof cacheGroups.styles !== 'object') {
       return;
     }
@@ -87,16 +65,22 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
       return;
     }
 
-    const styleGroupPriority = cacheGroups.styles.priority || 65536;
+    // Set priority grater than default group
+    const priority = (cacheGroups.styles.priority as number) + 1 || 65536;
+
     cacheGroups.linaria = {
       name: 'linaria',
-      test: filename => filename.endsWith(extension),
+      test: module => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore Webpack's type definition lies
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call
+        return Boolean(module.issuer?.matchResource?.endsWith(extension));
+      },
       chunks: 'all',
       enforce: true,
-      // Set priority grater than default group
-      priority: styleGroupPriority + 1,
+      priority,
     };
 
-    replaceWebpackConfig(newConfig);
+    replaceWebpackConfig(config);
   }
 };

@@ -1,17 +1,17 @@
-import type { ReactNode, ReactElement } from 'react';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/server';
 import type { GatsbySSR } from 'gatsby';
+import { collect } from '@linaria/server';
 
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { collect } from 'linaria/server';
-
-import type { PluginOptions } from './utils';
-import { isLinariaStyleElement } from './utils';
+import {
+  isLinariaStyleElement,
+  type PluginOptions,
+} from './utils';
 
 let bodyHTML: string;
 
 export const replaceRenderer: GatsbySSR['replaceRenderer'] = ({ bodyComponent }) => {
-  bodyHTML = renderToString(bodyComponent as ReactElement);
+  bodyHTML = ReactDOM.renderToString(bodyComponent as React.ReactElement);
 };
 
 export const onPreRenderHTML: GatsbySSR['onPreRenderHTML'] = ({
@@ -34,7 +34,7 @@ export const onPreRenderHTML: GatsbySSR['onPreRenderHTML'] = ({
     text: string,
   };
   const linariaStyleSheets: LinariaStyleSheet[] = [];
-  const otherElements: ReactNode[] = [];
+  const otherElements: React.ReactNode[] = [];
 
   for (const element of headComponents) {
     if (isLinariaStyleElement(element)) {
