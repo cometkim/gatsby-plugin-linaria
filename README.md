@@ -72,6 +72,10 @@ Lighthouse might complain you have duplicated style rules. (It's OK)
 
 See [this](https://github.com/cometkim/gatsby-plugin-linaria/issues/94#issuecomment-654760281) for more detailed explanation.
 
+# Changelog
+
+See [CHANGELOG.md](CHANGELOG.md)
+
 ## LICENSE
 
 MIT
