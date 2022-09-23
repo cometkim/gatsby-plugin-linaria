@@ -36,7 +36,7 @@ See [#13](https://github.com/cometkim/gatsby-plugin-linaria/issues/13#issuecomme
 
 ## Customize Loader Options
 
-You can customize [linaria loader options](https://github.com/callstack/linaria/blob/v2.1.0/docs/BUNDLERS_INTEGRATION.md#options)
+You can customize [linaria loader options](https://github.com/callstack/linaria/blob/master/docs/BUNDLERS_INTEGRATION.md#options)
 
 ```js
 {
