@@ -8192,7 +8192,7 @@ __metadata:
   peerDependencies:
     "@linaria/core": ^4.0.0
     "@linaria/react": ^4.0.0
-    gatsby: ^3.0.0 || ^4.0.0
+    gatsby: ^3.0.0 || ^4.0.0 || ^5.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
