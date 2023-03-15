@@ -64,7 +64,7 @@
     "@linaria/react": "^4.1.2",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
-    "babel-eslint": "^10.1.0",
+    "@babel/eslint-parser": "^7.11.0",
     "babel-preset-gatsby-package": "^3.0.0",
     "eslint": "^8.21.0",
     "gatsby": "^5.0.0",
