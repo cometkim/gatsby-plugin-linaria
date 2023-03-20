@@ -2807,11 +2807,11 @@ __metadata:
   linkType: hard
 
 "@linaria/server@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "@linaria/server@npm:4.0.0"
+  version: 4.1.0
+  resolution: "@linaria/server@npm:4.1.0"
   dependencies:
     postcss: ^8.3.11
-  checksum: 1c7e1bfa135e70d3f3d9c088ecd81f6684bfce667167c181e3a63e1eeb3b6af4c22f16518df06c7a85f0ce21edb299de22464364a32394791c3f3f16455d7707
+  checksum: 3185caf8432aa7cec3717ba01ae778d1eeb7051530426d78bdc249dfd2f046dab8883230eea347d48ff24654a07eb3552659c4d52de84346227ac442b66e39d8
   languageName: node
   linkType: hard
 
