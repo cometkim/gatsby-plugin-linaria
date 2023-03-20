@@ -2242,19 +2242,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/is-prop-valid@npm:^0.8.8":
-  version: 0.8.8
-  resolution: "@emotion/is-prop-valid@npm:0.8.8"
+"@emotion/is-prop-valid@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "@emotion/is-prop-valid@npm:1.2.0"
   dependencies:
-    "@emotion/memoize": 0.7.4
-  checksum: bb7ec6d48c572c540e24e47cc94fc2f8dec2d6a342ae97bc9c8b6388d9b8d283862672172a1bb62d335c02662afe6291e10c71e9b8642664a8b43416cdceffac
+    "@emotion/memoize": ^0.8.0
+  checksum: cc7a19850a4c5b24f1514665289442c8c641709e6f7711067ad550e05df331da0692a16148e85eda6f47e31b3261b64d74c5e25194d053223be16231f969d633
   languageName: node
   linkType: hard
 
-"@emotion/memoize@npm:0.7.4":
-  version: 0.7.4
-  resolution: "@emotion/memoize@npm:0.7.4"
-  checksum: 4e3920d4ec95995657a37beb43d3f4b7d89fed6caa2b173a4c04d10482d089d5c3ea50bbc96618d918b020f26ed6e9c4026bbd45433566576c1f7b056c3271dc
+"@emotion/memoize@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "@emotion/memoize@npm:0.8.0"
+  checksum: c87bb110b829edd8e1c13b90a6bc37cebc39af29c7599a1e66a48e06f9bec43e8e53495ba86278cc52e7589549492c8dfdc81d19f4fdec0cee6ba13d2ad2c928
   languageName: node
   linkType: hard
 
@@ -2782,6 +2782,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@linaria/core@npm:^4.2.8":
+  version: 4.2.8
+  resolution: "@linaria/core@npm:4.2.8"
+  dependencies:
+    "@linaria/logger": ^4.0.0
+    "@linaria/tags": ^4.3.3
+    "@linaria/utils": ^4.3.2
+  checksum: 4f1256c84a5139fe83114734946df14bd6eabe3db2aae9eaf8b4047e3c9890a7f156d48616f2cf2412be788fa61a0770bee2315ac8daa24a1c78a7f000dbfc64
+  languageName: node
+  linkType: hard
+
 "@linaria/logger@npm:^4.0.0":
   version: 4.0.0
   resolution: "@linaria/logger@npm:4.0.0"
@@ -2793,16 +2804,18 @@ __metadata:
   linkType: hard
 
 "@linaria/react@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "@linaria/react@npm:4.1.2"
+  version: 4.3.6
+  resolution: "@linaria/react@npm:4.3.6"
   dependencies:
-    "@emotion/is-prop-valid": ^0.8.8
-    "@linaria/core": ^4.1.1
-    "@linaria/tags": ^4.1.1
+    "@emotion/is-prop-valid": ^1.2.0
+    "@linaria/core": ^4.2.8
+    "@linaria/tags": ^4.3.3
+    "@linaria/utils": ^4.3.2
+    react-html-attributes: ^1.4.6
     ts-invariant: ^0.10.3
   peerDependencies:
     react: ">=16"
-  checksum: 67e89199fda083d533f31e23d9a22b412253a4473459a69b3ac9b37bc0b1f8f7f7b02ca989b77d574c00462c502d1dbf338c3a27120982b82f4707bc332ff83d
+  checksum: 960c532a17a4a783677b8330acb925700cad9b84c67bfad5c9436a682d92352f95def25377234e6ad5a2c3c14272179074085667d6bebf1c0b0438cf5d5d5497
   languageName: node
   linkType: hard
 
@@ -9307,6 +9320,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"html-element-attributes@npm:^1.0.0":
+  version: 1.3.1
+  resolution: "html-element-attributes@npm:1.3.1"
+  checksum: 2b4c14bdd1a56d816da5a50028abba76ccd967ae1cde72a6fb8021f8c5a75af20a18d791e2da4a4ec8397323f84b55ec22968f4fca7c42efb2343e7dbdd23272
+  languageName: node
+  linkType: hard
+
 "html-entities@npm:^2.1.0":
   version: 2.3.2
   resolution: "html-entities@npm:2.3.2"
@@ -12933,6 +12953,15 @@ __metadata:
   version: 6.0.11
   resolution: "react-error-overlay@npm:6.0.11"
   checksum: ce7b44c38fadba9cedd7c095cf39192e632daeccf1d0747292ed524f17dcb056d16bc197ddee5723f9dd888f0b9b19c3b486c430319e30504289b9296f2d2c42
+  languageName: node
+  linkType: hard
+
+"react-html-attributes@npm:^1.4.6":
+  version: 1.4.6
+  resolution: "react-html-attributes@npm:1.4.6"
+  dependencies:
+    html-element-attributes: ^1.0.0
+  checksum: f7b89c96700760b362fc3defef3bd850a134b42b248fd27ec1bb820c1dba7a4ececa8d3acbce8d6b1bb8caf07d5288c4307506e831bfcb7f514bb519de3acad4
   languageName: node
   linkType: hard
 
