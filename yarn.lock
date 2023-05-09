@@ -2657,9 +2657,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/babel-preset@npm:^4.4.3":
-  version: 4.4.3
-  resolution: "@linaria/babel-preset@npm:4.4.3"
+"@linaria/babel-preset@npm:^4.4.5":
+  version: 4.4.5
+  resolution: "@linaria/babel-preset@npm:4.4.5"
   dependencies:
     "@babel/core": ^7.20.2
     "@babel/generator": ^7.20.4
@@ -2667,31 +2667,20 @@ __metadata:
     "@babel/template": ^7.18.10
     "@babel/traverse": ^7.20.1
     "@babel/types": ^7.20.2
-    "@linaria/core": ^4.2.8
+    "@linaria/core": ^4.2.10
     "@linaria/logger": ^4.0.0
-    "@linaria/shaker": ^4.2.9
-    "@linaria/tags": ^4.3.3
-    "@linaria/utils": ^4.3.2
+    "@linaria/shaker": ^4.2.11
+    "@linaria/tags": ^4.3.5
+    "@linaria/utils": ^4.3.4
     cosmiconfig: ^8.0.0
     find-up: ^5.0.0
     source-map: ^0.7.3
     stylis: ^3.5.4
-  checksum: 8580fc044dfd81b197c95a1433bd5bf97bee1108c33482ae7a17892dbcf1ada8c50699ee406436a8ec92b23ff756f5af11315b9bf6a6b79aaabff2501b7e4615
+  checksum: 8dce78ec962a045872971f3f4a1ba091aa6dd00d8638fd0d4a98ab09733b05e9f4bdeca51ec1937d2e9cc325c9be3b73a78f801ffded48bafc0c7adf372c830a
   languageName: node
   linkType: hard
 
-"@linaria/core@npm:^4.1.1, @linaria/core@npm:^4.2.8":
-  version: 4.2.10
-  resolution: "@linaria/core@npm:4.2.10"
-  dependencies:
-    "@linaria/logger": ^4.0.0
-    "@linaria/tags": ^4.3.5
-    "@linaria/utils": ^4.3.4
-  checksum: a30378a43f09daa16cb16bc374cce7c830e279dfdb7ebd6430c176db40ab11f8dd4fdb7245cf98ef7cc82160a58006d426d77d193efb6dec3ac889fe6943cf80
-  languageName: node
-  linkType: hard
-
-"@linaria/core@npm:^4.2.10":
+"@linaria/core@npm:^4.1.1, @linaria/core@npm:^4.2.10":
   version: 4.2.10
   resolution: "@linaria/core@npm:4.2.10"
   dependencies:
@@ -2737,9 +2726,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@linaria/shaker@npm:^4.2.9":
-  version: 4.2.9
-  resolution: "@linaria/shaker@npm:4.2.9"
+"@linaria/shaker@npm:^4.2.11":
+  version: 4.2.11
+  resolution: "@linaria/shaker@npm:4.2.11"
   dependencies:
     "@babel/core": ^7.20.2
     "@babel/generator": ^7.20.4
@@ -2748,21 +2737,10 @@ __metadata:
     "@babel/plugin-transform-template-literals": ^7.18.9
     "@babel/preset-env": ^7.20.2
     "@linaria/logger": ^4.0.0
-    "@linaria/utils": ^4.3.2
+    "@linaria/utils": ^4.3.4
     babel-plugin-transform-react-remove-prop-types: ^0.4.24
     ts-invariant: ^0.10.3
-  checksum: bf0c04eb9bcf9271cb80aa44e51cd0dda7422964c01eab5a734381f36ebefa3e3552151fb63fc51b55b2b4d5ce310edc06bff8f3755cf7177016fa4570f3efd0
-  languageName: node
-  linkType: hard
-
-"@linaria/tags@npm:^4.3.3":
-  version: 4.3.3
-  resolution: "@linaria/tags@npm:4.3.3"
-  dependencies:
-    "@babel/generator": ^7.20.4
-    "@linaria/logger": ^4.0.0
-    "@linaria/utils": ^4.3.2
-  checksum: 48c73fc5fc737fb1feae1975ce5fc0977ecd235a185c462837b98b45336ee92d9d2cd14326afff0065df51447d8dcc6953d175e4783e528ef3d18e6bc9a93305
+  checksum: 2cada6b3d31804110775dfeddb3afef4d586ee5bc4266a5ab784022bcb62a429e1b290678e030e7661ccc59524c27bfcb737ffd7fe0a6e86f3af061a097bca81
   languageName: node
   linkType: hard
 
@@ -2774,22 +2752,6 @@ __metadata:
     "@linaria/logger": ^4.0.0
     "@linaria/utils": ^4.3.4
   checksum: 0ae79c1fb3aaeb49b18234ea94d9ba2f497824d34c91f47f3e6b024409c744fff5e53ddd464d93a092348728483175e1d19dbc3e018640c738d956201c580366
-  languageName: node
-  linkType: hard
-
-"@linaria/utils@npm:^4.3.2":
-  version: 4.3.2
-  resolution: "@linaria/utils@npm:4.3.2"
-  dependencies:
-    "@babel/core": ^7.20.2
-    "@babel/plugin-proposal-export-namespace-from": ^7.18.9
-    "@babel/plugin-syntax-dynamic-import": ^7.8.3
-    "@babel/plugin-transform-modules-commonjs": ^7.19.6
-    "@babel/traverse": ^7.20.1
-    "@babel/types": ^7.20.2
-    "@linaria/logger": ^4.0.0
-    babel-merge: ^3.0.0
-  checksum: 94ed2f056bb839882bde1fdb8ead9491d17f3ac0b1908d29752fa2036acdc87d19a94e033e87d63a8037075d793d80891cad6493cdc0be0ad95e20db376c4508
   languageName: node
   linkType: hard
 
@@ -2810,41 +2772,41 @@ __metadata:
   linkType: hard
 
 "@linaria/webpack-loader@npm:^4.1.2":
-  version: 4.1.15
-  resolution: "@linaria/webpack-loader@npm:4.1.15"
+  version: 4.1.17
+  resolution: "@linaria/webpack-loader@npm:4.1.17"
   dependencies:
-    "@linaria/webpack4-loader": ^4.1.15
-    "@linaria/webpack5-loader": ^4.1.15
-  checksum: fd16d9c33f1648019793a1e355fd8a4e8be0506ff04a848845334e710448d110b0ff95ce3421ecd0dc1cbd6108fe5f94559c89585e96de722b2d72a6face0408
+    "@linaria/webpack4-loader": ^4.1.17
+    "@linaria/webpack5-loader": ^4.1.17
+  checksum: b68bfad64ac75c695a3851d8e37724234952c6263fa4e31066325763551e39fe17bcf57d8a9a600715577135726c4de080c6af6c305b5141de67f3631d6ff110
   languageName: node
   linkType: hard
 
-"@linaria/webpack4-loader@npm:^4.1.15":
-  version: 4.1.15
-  resolution: "@linaria/webpack4-loader@npm:4.1.15"
+"@linaria/webpack4-loader@npm:^4.1.17":
+  version: 4.1.17
+  resolution: "@linaria/webpack4-loader@npm:4.1.17"
   dependencies:
-    "@linaria/babel-preset": ^4.4.3
+    "@linaria/babel-preset": ^4.4.5
     "@linaria/logger": ^4.0.0
     enhanced-resolve: ^4.1.0
     loader-utils: ^1.2.3
     mkdirp: ^0.5.1
   peerDependencies:
     webpack: ">=4.0.0 <5.0.0"
-  checksum: 4ff96cc71c274c0f17fd9aeb8d1a9666a7df33e1f301d49da652bbb76bd2c081bea10c6cb5e451c624c6526da0f9193f594b012ba3063687b03b2e8b841b2ee4
+  checksum: 91610c2f6a6ac73f70ee0e72d296bfbebd6dfbde93a257a3dbe45c7a963e38b6843b30ccb5e3edaed459a4eddc37ff931d1514710127b64015885c6722af00d2
   languageName: node
   linkType: hard
 
-"@linaria/webpack5-loader@npm:^4.1.15":
-  version: 4.1.15
-  resolution: "@linaria/webpack5-loader@npm:4.1.15"
+"@linaria/webpack5-loader@npm:^4.1.17":
+  version: 4.1.17
+  resolution: "@linaria/webpack5-loader@npm:4.1.17"
   dependencies:
-    "@linaria/babel-preset": ^4.4.3
+    "@linaria/babel-preset": ^4.4.5
     "@linaria/logger": ^4.0.0
     enhanced-resolve: ^5.3.1
     mkdirp: ^0.5.1
   peerDependencies:
     webpack: ^5.0.0
-  checksum: 1fdd34854a3d22353a40f548230b1a418f50067a58a1b76f9648fcad6805ef3735669228fa5dc842fb93ae010f29bf677aeea2c73a4ee472d709a281612a5b15
+  checksum: 61752bda1b457a23357013dd3fbc4fe4c21cb15540a7003c5598338c4aca9194396d5117d35e57c69c78317e2c6349fd123022afed09fb5c23957e4c2c75bd53
   languageName: node
   linkType: hard
 
