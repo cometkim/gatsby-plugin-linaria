@@ -2691,6 +2691,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@linaria/core@npm:^4.2.10":
+  version: 4.2.10
+  resolution: "@linaria/core@npm:4.2.10"
+  dependencies:
+    "@linaria/logger": ^4.0.0
+    "@linaria/tags": ^4.3.5
+    "@linaria/utils": ^4.3.4
+  checksum: a30378a43f09daa16cb16bc374cce7c830e279dfdb7ebd6430c176db40ab11f8dd4fdb7245cf98ef7cc82160a58006d426d77d193efb6dec3ac889fe6943cf80
+  languageName: node
+  linkType: hard
+
 "@linaria/logger@npm:^4.0.0":
   version: 4.0.0
   resolution: "@linaria/logger@npm:4.0.0"
@@ -2702,18 +2713,18 @@ __metadata:
   linkType: hard
 
 "@linaria/react@npm:^4.1.2":
-  version: 4.3.6
-  resolution: "@linaria/react@npm:4.3.6"
+  version: 4.3.8
+  resolution: "@linaria/react@npm:4.3.8"
   dependencies:
     "@emotion/is-prop-valid": ^1.2.0
-    "@linaria/core": ^4.2.8
-    "@linaria/tags": ^4.3.3
-    "@linaria/utils": ^4.3.2
+    "@linaria/core": ^4.2.10
+    "@linaria/tags": ^4.3.5
+    "@linaria/utils": ^4.3.4
     react-html-attributes: ^1.4.6
     ts-invariant: ^0.10.3
   peerDependencies:
     react: ">=16"
-  checksum: 960c532a17a4a783677b8330acb925700cad9b84c67bfad5c9436a682d92352f95def25377234e6ad5a2c3c14272179074085667d6bebf1c0b0438cf5d5d5497
+  checksum: 91f185d26a15f82e80f10743030c05b75d75b82f58eebb6ad619944e4d7df2e57af0c35a751169bfcb725ebca8afd41206e5bb6262676e6158c34845d1947c91
   languageName: node
   linkType: hard
 
