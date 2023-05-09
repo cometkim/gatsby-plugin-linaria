@@ -38,7 +38,6 @@
     "utils.js"
   ],
   "scripts": {
-    "prepare": "husky install",
     "build": "babel src --out-dir . --extensions .ts,.tsx --presets gatsby-package",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
     "prepack": "yarn build"
@@ -68,7 +67,6 @@
     "babel-preset-gatsby-package": "^3.0.0",
     "eslint": "^8.21.0",
     "gatsby": "^5.0.0",
-    "husky": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "typescript": "^5.0.0",
