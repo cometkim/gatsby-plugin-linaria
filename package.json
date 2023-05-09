@@ -39,7 +39,7 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "build": "babel src --out-dir . --extensions .ts,.tsx",
+    "build": "babel src --out-dir . --extensions .ts,.tsx --presets gatsby-package",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx",
     "prepack": "yarn build"
   },
