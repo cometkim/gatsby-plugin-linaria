@@ -2681,13 +2681,13 @@ __metadata:
   linkType: hard
 
 "@linaria/core@npm:^4.1.1, @linaria/core@npm:^4.2.8":
-  version: 4.2.8
-  resolution: "@linaria/core@npm:4.2.8"
+  version: 4.2.10
+  resolution: "@linaria/core@npm:4.2.10"
   dependencies:
     "@linaria/logger": ^4.0.0
-    "@linaria/tags": ^4.3.3
-    "@linaria/utils": ^4.3.2
-  checksum: 4f1256c84a5139fe83114734946df14bd6eabe3db2aae9eaf8b4047e3c9890a7f156d48616f2cf2412be788fa61a0770bee2315ac8daa24a1c78a7f000dbfc64
+    "@linaria/tags": ^4.3.5
+    "@linaria/utils": ^4.3.4
+  checksum: a30378a43f09daa16cb16bc374cce7c830e279dfdb7ebd6430c176db40ab11f8dd4fdb7245cf98ef7cc82160a58006d426d77d193efb6dec3ac889fe6943cf80
   languageName: node
   linkType: hard
 
@@ -2755,6 +2755,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@linaria/tags@npm:^4.3.5":
+  version: 4.3.5
+  resolution: "@linaria/tags@npm:4.3.5"
+  dependencies:
+    "@babel/generator": ^7.20.4
+    "@linaria/logger": ^4.0.0
+    "@linaria/utils": ^4.3.4
+  checksum: 0ae79c1fb3aaeb49b18234ea94d9ba2f497824d34c91f47f3e6b024409c744fff5e53ddd464d93a092348728483175e1d19dbc3e018640c738d956201c580366
+  languageName: node
+  linkType: hard
+
 "@linaria/utils@npm:^4.3.2":
   version: 4.3.2
   resolution: "@linaria/utils@npm:4.3.2"
@@ -2768,6 +2779,22 @@ __metadata:
     "@linaria/logger": ^4.0.0
     babel-merge: ^3.0.0
   checksum: 94ed2f056bb839882bde1fdb8ead9491d17f3ac0b1908d29752fa2036acdc87d19a94e033e87d63a8037075d793d80891cad6493cdc0be0ad95e20db376c4508
+  languageName: node
+  linkType: hard
+
+"@linaria/utils@npm:^4.3.4":
+  version: 4.3.4
+  resolution: "@linaria/utils@npm:4.3.4"
+  dependencies:
+    "@babel/core": ^7.20.2
+    "@babel/plugin-proposal-export-namespace-from": ^7.18.9
+    "@babel/plugin-syntax-dynamic-import": ^7.8.3
+    "@babel/plugin-transform-modules-commonjs": ^7.19.6
+    "@babel/traverse": ^7.20.1
+    "@babel/types": ^7.20.2
+    "@linaria/logger": ^4.0.0
+    babel-merge: ^3.0.0
+  checksum: a1f95942929712ef3ed89fb296e6fe4a20288db86a7d54b7b4ab659a5cae30b092275c0e6e560f32ce02e45908471e0b8fabbf4a2c69f0a10b2313d13b1baa4e
   languageName: node
   linkType: hard
 
