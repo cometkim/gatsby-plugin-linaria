@@ -44,6 +44,7 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
         {
           ...rules.js(),
           use: [linariaLoader],
+          exclude: /\.cache/,
         },
       ],
     },
