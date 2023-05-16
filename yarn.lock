@@ -2108,8 +2108,8 @@ __metadata:
   linkType: hard
 
 "@cometjs/eslint-plugin@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "@cometjs/eslint-plugin@npm:2.0.0"
+  version: 2.1.0
+  resolution: "@cometjs/eslint-plugin@npm:2.1.0"
   dependencies:
     "@babel/eslint-parser": ^7.17.0
     "@typescript-eslint/eslint-plugin": ^5.14.0
@@ -2123,7 +2123,7 @@ __metadata:
     "@babel/core": ^7.0.0
     eslint: ^8.0.0
     react: ">=16.8.0"
-    typescript: ^4.5.0
+    typescript: ^4.5.0 || ^5.0.0
   peerDependenciesMeta:
     "@babel/core":
       optional: true
@@ -2131,7 +2131,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 89714a20628f54768b1f21a7ac8f200b39e3ded690e8a0c5f818854a70956ab480bf5bda11af94f06a8339e22d9bceb8644e5642dfb5116fd00945f71a8fafcc
+  checksum: 61a1dd76f1c89b1300733af3a36147f862502ec54f5117497af1145cb744d392613e29c53ebdda7dbb5b18df0b830a95bd86532a17ce107294afedeebdf49850
   languageName: node
   linkType: hard
 
