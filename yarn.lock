@@ -2747,11 +2747,11 @@ __metadata:
   linkType: hard
 
 "@linaria/server@npm:^4.0.0":
-  version: 4.1.0
-  resolution: "@linaria/server@npm:4.1.0"
+  version: 4.5.0
+  resolution: "@linaria/server@npm:4.5.0"
   dependencies:
     postcss: ^8.3.11
-  checksum: 3185caf8432aa7cec3717ba01ae778d1eeb7051530426d78bdc249dfd2f046dab8883230eea347d48ff24654a07eb3552659c4d52de84346227ac442b66e39d8
+  checksum: 6f0286e9e4bd193debb3520efcf31dabfabd4113ec0bc2aa7e1ebcdd0f0eed6c78b6c5d6d8f1f2fb63b09bc9543010fb080779023b5c6b770cd8abaa63c4fb31
   languageName: node
   linkType: hard
 
